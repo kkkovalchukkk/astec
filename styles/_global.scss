@@ -1,0 +1,20 @@
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: $mainFont;
+  min-width: 320px;
+  background-color: $white;
+}
+
+.page {
+  width: 100%;
+  min-height: 100%;
+}
+
+section {
+  margin-bottom: 120px;
+}
