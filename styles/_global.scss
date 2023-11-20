@@ -2,13 +2,14 @@ html,
 body {
   width: 100%;
   min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 
 body {
   font-family: $mainFont;
   min-width: 320px;
   background-color: $white;
-  overflow-x: hidden;
 }
 
 .page {
