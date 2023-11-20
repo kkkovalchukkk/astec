@@ -355,6 +355,9 @@ section {
   height: 556px;
   z-index: -1;
 }
+.promo-section__animation--contacts {
+  bottom: -397px;
+}
 .promo-section__animation-item--second {
   top: 0;
   right: -80px;
@@ -791,10 +794,10 @@ h2 {
 .works-section__gallery-card {
   width: 100%;
 }
-.works-section__gallery-card:hover .works-section__gallery-card-heading::after {
+.works-section__gallery-card:hover .works-section__gallery-card-heading::after, .works-section__gallery-card:hover .detail-section__gallery-card-heading::after {
   max-width: 100%;
 }
-.works-section__gallery-card-image-wrapper {
+.works-section__gallery-card-image-wrapper, .detail-section__gallery-card-image-wrapper {
   width: 100%;
   height: 450px;
   display: inline-block;
@@ -806,7 +809,7 @@ h2 {
   width: 100%;
   height: 1034px;
 }
-.works-section__gallery-card-image-wrapper:hover img {
+.works-section__gallery-card-image-wrapper:hover img, .detail-section__gallery-card-image-wrapper:hover img {
   transform: scale(1.05);
 }
 .works-section__gallery-card-image {
@@ -818,7 +821,7 @@ h2 {
      object-position: center;
   transition: 0.23s;
 }
-.works-section__gallery-card-category {
+.works-section__gallery-card-category, .detail-section__gallery-card-category {
   position: relative;
   display: inline-block;
   margin-bottom: 20px;
@@ -832,7 +835,7 @@ h2 {
   line-height: 20px;
   letter-spacing: -0.42px;
 }
-.works-section__gallery-card-category::after {
+.works-section__gallery-card-category::after, .detail-section__gallery-card-category::after {
   content: "";
   width: 100%;
   height: 2px;
@@ -843,10 +846,10 @@ h2 {
   max-width: 0%;
   transition: 0.23s;
 }
-.works-section__gallery-card-category:hover::after {
+.works-section__gallery-card-category:hover::after, .detail-section__gallery-card-category:hover::after {
   max-width: 100%;
 }
-.works-section__gallery-card-heading {
+.works-section__gallery-card-heading, .detail-section__gallery-card-heading {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
@@ -860,7 +863,7 @@ h2 {
   line-height: 28px;
   letter-spacing: -0.66px;
 }
-.works-section__gallery-card-heading::after {
+.works-section__gallery-card-heading::after, .detail-section__gallery-card-heading::after {
   width: 100%;
   max-width: 0%;
   height: 1.5px;
@@ -1579,16 +1582,20 @@ h2 {
   font-weight: 600;
   line-height: 24px; /* 133.333% */
   letter-spacing: -0.54px;
-}
-.breadcrumbs__link--current {
   padding-left: 24px;
   position: relative;
 }
-.breadcrumbs__link--current::after {
+.breadcrumbs__link::after {
   content: "/";
   position: absolute;
   left: 9px;
   top: 1px;
+}
+.breadcrumbs__link:first-child {
+  padding: 0;
+}
+.breadcrumbs__link:first-child::after {
+  display: none;
 }
 
 .form-section {
@@ -1908,6 +1915,243 @@ h2 {
 }
 .offer-section__gallery-link-img {
   transition: 0.23s;
+}
+
+.detail-section__wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+}
+.detail-section__heading {
+  margin-bottom: 40px;
+}
+.detail-section__subtext {
+  margin-bottom: 100px;
+  color: rgba(27, 23, 25, 0.6);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.48px;
+}
+.detail-section__text-content {
+  max-width: 910px;
+  margin-bottom: 100px;
+  margin-left: auto;
+}
+.detail-section__text-content p {
+  color: #1b1719;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px; /* 113.333% */
+  letter-spacing: -0.9px;
+}
+.detail-section__img {
+  width: 100%;
+  height: 1034px;
+  margin-bottom: 125px;
+  border-radius: 20px;
+}
+.detail-section__heading-field {
+  margin-bottom: 80px;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.detail-section__subheading {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.detail-section__count {
+  position: absolute;
+  right: -16px;
+  top: -5px;
+  color: rgba(0, 0, 0, 0.6);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.48px;
+}
+.detail-section__gallery {
+  width: 100%;
+  overflow: visible;
+}
+.detail-section__gallery-card {
+  width: 100%;
+  max-width: 600px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+}
+.detail-section__gallery-card:hover .detail-section__gallery-card-heading {
+  text-decoration-color: #1b1719;
+}
+.detail-section__gallery-card-image-wrapper {
+  width: 100%;
+  height: 450px;
+}
+.detail-section__gallery-card-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: 0.23s;
+}
+.detail-section__gallery-card-heading {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 0.23s;
+}
+.detail-section__card-list {
+  width: 100%;
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 440px;
+  gap: 20px;
+}
+.detail-section__card {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-radius: 20px;
+  border: 1px solid #1b1719;
+}
+.detail-section__card-num {
+  color: #1b1719;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Magistral", sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.detail-section__card-text {
+  color: #1b1719;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 127.273% */
+  letter-spacing: -0.66px;
+}
+
+.contacts-section {
+  margin-top: 100px;
+  position: relative;
+}
+.contacts-section__wrapper {
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 50.54% 49.46%;
+}
+.contacts-section__heading {
+  margin-bottom: 140px;
+}
+.contacts-section__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+}
+.contacts-section__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 24px;
+}
+.contacts-section__item-heading {
+  color: rgba(0, 0, 0, 0.5);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.48px;
+}
+.contacts-section__item-tel-link {
+  color: #1b1719;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 50px;
+  letter-spacing: -1.5px;
+}
+.contacts-section__item-text {
+  color: #1b1719;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.54px;
+}
+.contacts-section__link {
+  color: #01684f;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.54px;
+  margin-top: 40px;
+  margin-bottom: 84px;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 0.23s;
+}
+.contacts-section__link:hover {
+  text-decoration-color: #01684f;
+}
+.contacts-section__group {
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.contacts-section__socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.contacts-section__socials-link svg {
+  width: 60px;
+  height: 60px;
+}
+.contacts-section__socials-link:hover svg {
+  fill: rgba(1, 104, 79, 0.12);
 }
 
 @keyframes discSlide {
