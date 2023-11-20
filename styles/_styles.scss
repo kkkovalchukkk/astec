@@ -98,22 +98,9 @@
     line-height: 24px;
     letter-spacing: -0.54px;
     transition: $defaultTransitionTime;
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background-color: rgba($color: $darkGreen, $alpha: 0.8);
-      max-width: 0%;
-      transition: $defaultTransitionTime;
-    }
+
     &:hover {
       color: rgba($color: $darkGreen, $alpha: 0.8);
-      &::after {
-        max-width: 100%;
-      }
     }
     &.active {
       color: $darkGreen;
@@ -121,6 +108,10 @@
   }
 
   &__btn {
+    &:hover {
+      color: $white;
+      background: #015641;
+    }
   }
 
   &__mobile-menu {
@@ -145,27 +136,10 @@
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.54px;
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    background-color: rgba($color: $darkGreen, $alpha: 0.8);
-    max-width: 0%;
-    transition: $defaultTransitionTime;
-  }
+  transition: $defaultTransitionTime;
   &:hover {
     color: rgba($color: $darkGreen, $alpha: 0.8);
-    &::after {
-      max-width: 100%;
-    }
   }
-}
-
-.page {
-  //   padding-top: 97px;
 }
 
 .promo-section {
@@ -256,7 +230,7 @@
         top: 0;
         right: -80px;
         position: absolute;
-        animation: discSlide 0.5s;
+        animation: discSlide 0.8s linear 1;
       }
     }
   }
@@ -373,7 +347,7 @@ h1 {
   }
 
   &__group-item-label {
-    padding: 0.61535em;
+    padding: 10px;
     color: $white;
     text-align: right;
     leading-trim: both;
@@ -487,23 +461,21 @@ h2 {
   &__card-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
   &__ordered-card {
     position: sticky;
-    right: 0;
-    top: 47px;
+    &:nth-child(1) {
+      top: 48px;
+    }
     &:nth-child(2) {
-      top: 47px + 30px;
+      top: 85px;
     }
     &:nth-child(3) {
-      top: 47px + 60px;
+      top: 120px;
     }
     &:nth-child(4) {
-      top: 47px + 90px;
-    }
-    &:nth-child(5) {
-      top: 47px + 120px;
+      top: 160px;
     }
   }
 }
@@ -511,7 +483,7 @@ h2 {
 .ordered-card {
   width: 100%;
   height: 100%;
-  padding: 39.9px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -528,7 +500,7 @@ h2 {
     font-size: 100px;
     font-style: normal;
     font-weight: 700;
-    line-height: 50px;
+    line-height: 70%;
     letter-spacing: -2px;
   }
   p {
@@ -593,7 +565,7 @@ h2 {
   }
 
   &__counter {
-    margin-right: 282px;
+    margin-right: 23%;
     color: $darkGreen;
     leading-trim: both;
     text-edge: cap;
@@ -637,8 +609,6 @@ h2 {
   }
 
   &__content {
-    // margin-left: 309px;
-    // margin-top: 40px;
     max-height: 0px;
     overflow: hidden;
     opacity: 0;
@@ -647,6 +617,10 @@ h2 {
   }
 
   &__list {
+    max-width: 350px;
+    margin-left: 24.6%;
+    margin-top: 40px;
+    margin-right: 46.8%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -655,14 +629,14 @@ h2 {
   }
   &.active {
     .accordeon__content {
-      margin-left: 309px;
-      margin-top: 40px;
+      display: block;
       visibility: visible;
       opacity: 1;
     }
   }
 }
 .link {
+  white-space: nowrap;
   display: inline-block;
   border-radius: 30px;
   border: 1px solid $darkGreen;
@@ -739,6 +713,13 @@ h2 {
 
   &__gallery-card {
     width: 100%;
+    &:hover {
+      .works-section__gallery-card-heading {
+        &::after {
+          max-width: 100%;
+        }
+      }
+    }
   }
 
   &__gallery-card-image-wrapper {
@@ -768,6 +749,7 @@ h2 {
   }
 
   &__gallery-card-category {
+    position: relative;
     display: inline-block;
     margin-bottom: 20px;
     color: $darkGreen;
@@ -779,12 +761,30 @@ h2 {
     font-weight: 600;
     line-height: 20px;
     letter-spacing: -0.42px;
+    &::after {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: $darkGreen;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      max-width: 0%;
+      transition: $defaultTransitionTime;
+    }
+    &:hover {
+      &::after {
+        max-width: 100%;
+      }
+    }
   }
 
   &__gallery-card-heading-link {
   }
 
   &__gallery-card-heading {
+    position: relative;
+    width: fit-content;
     color: $black;
     leading-trim: both;
     text-edge: cap;
@@ -794,6 +794,17 @@ h2 {
     font-weight: 600;
     line-height: 28px;
     letter-spacing: -0.66px;
+    &::after {
+      width: 100%;
+      max-width: 0%;
+      height: 1.5px;
+      background-color: $black;
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: -3px;
+      transition: $defaultTransitionTime;
+    }
   }
 
   &__gallery-row--reverse {
@@ -879,19 +890,15 @@ h2 {
 
 .footer {
   width: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background: $black;
-
+  padding-left: 40px;
+  padding-right: 40px;
   &__top {
-    padding-left: 40px;
-    padding-right: 40px;
   }
   &__top-wrapper {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: $black;
     padding-top: 80px;
-    padding-left: 0;
-    padding-right: 0;
-    border-bottom: 1px solid rgba(227, 227, 227, 0.2);
     padding-bottom: 207px;
     display: grid;
     align-items: flex-start;
@@ -899,15 +906,23 @@ h2 {
     gap: 24px;
     background-image: url('../assets/svg/footer-company-name.svg');
     background-repeat: no-repeat;
-    background-position: left 0 bottom 40px;
-  }
-  &__bottom {
-    padding-left: 20px;
-    padding-right: 20px;
+    background-position: left 40px bottom 40px;
   }
   &__bottom-wrapper {
-    padding-left: 0;
-    padding-right: 0;
+    position: relative;
+    background: $black;
+    padding: 40px;
+    &::after {
+      content: '';
+      width: 95.65%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      margin: 0 auto;
+      background-color: rgba(227, 227, 227, 0.2);
+    }
   }
 
   &__col {
@@ -947,9 +962,12 @@ h2 {
     font-weight: 600;
     line-height: 24px;
     letter-spacing: -0.54px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
     transition: $defaultTransitionTime;
+
     &:hover {
-      filter: brightness(0.6);
+      text-decoration-color: $white;
     }
   }
 
@@ -963,9 +981,11 @@ h2 {
     font-weight: 500;
     line-height: 34px;
     letter-spacing: -1.44px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
     transition: $defaultTransitionTime;
     &:hover {
-      filter: brightness(0.6);
+      text-decoration-color: $white;
     }
   }
 
@@ -1016,9 +1036,12 @@ h2 {
     font-weight: 500;
     line-height: 24px;
     letter-spacing: -0.54px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
     transition: $defaultTransitionTime;
+
     &:hover {
-      filter: brightness(0.6);
+      text-decoration-color: $white;
     }
   }
 
@@ -1031,15 +1054,12 @@ h2 {
         width: 60px;
         height: 60px;
       }
-      transition: $defaultTransitionTime;
       &:hover {
-        filter: brightness(0.6);
+        svg {
+          fill: rgba(255, 255, 255, 0.1);
+        }
       }
     }
-  }
-
-  &__bottom {
-    padding: 40px 40px;
   }
 
   &__copyrights {
@@ -1072,6 +1092,12 @@ h2 {
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.48px;
+    transition: $defaultTransitionTime;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    &:hover {
+      text-decoration-color: $white;
+    }
   }
 
   &__madeby {
@@ -1085,10 +1111,12 @@ h2 {
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.48px;
-    transition: $defaultTransitionTime;
     &:hover {
-      filter: brightness(0.6);
+      b {
+        text-decoration-color: $white;
+      }
     }
+
     b {
       color: $white;
       leading-trim: both;
@@ -1099,6 +1127,9 @@ h2 {
       font-weight: 600;
       line-height: 24px;
       letter-spacing: -0.48px;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: $defaultTransitionTime;
     }
   }
 }
@@ -1159,8 +1190,8 @@ h2 {
     border: none;
     background: none;
     padding: 0;
-    right: 50px;
-    top: 40px;
+    right: 0;
+    top: 0;
     cursor: pointer;
     transition: $defaultTransitionTime;
     &:hover {
@@ -1224,7 +1255,7 @@ h2 {
     font-weight: 600;
     line-height: 24px;
     letter-spacing: -0.48px;
-    padding: 1em;
+    padding: 13px;
     cursor: pointer;
     transition: $defaultTransitionTime;
     &.active {
@@ -1417,6 +1448,12 @@ h2 {
     font-weight: 600;
     line-height: 20px; /* 125% */
     letter-spacing: -0.48px;
+    transition: $defaultTransitionTime;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    &:hover {
+      text-decoration-color: $darkGreen;
+    }
   }
 
   &__image {
@@ -1453,8 +1490,7 @@ h2 {
   }
 
   &__left-col {
-    max-width: 1220px;
-
+    // max-width: 1220px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1464,10 +1500,9 @@ h2 {
 
   &__gallery {
     width: 100%;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    flex-wrap: wrap;
   }
 
   &__gallery-img {
@@ -1529,7 +1564,7 @@ h2 {
 
   &__right-col {
     margin-bottom: 16px;
-    max-width: 1220px;
+    // max-width: 1220px;
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -1569,6 +1604,7 @@ h2 {
 }
 
 .form-section {
+  padding: 0px 40px;
   &__wrapper {
     padding: 80px 40px;
     border-radius: 20px;
@@ -1767,6 +1803,11 @@ h2 {
 
   &__list-item {
     width: 100%;
+    &:hover {
+      .offers-section__list-item-heading {
+        text-decoration-color: $black;
+      }
+    }
   }
 
   &__list-item-img-wrapper {
@@ -1798,6 +1839,9 @@ h2 {
     font-weight: 600;
     line-height: 28px;
     letter-spacing: -0.66px;
+    text-decoration: underline;
+    transition: $defaultTransitionTime;
+    text-decoration-color: transparent;
   }
 }
 
@@ -1873,6 +1917,15 @@ h2 {
     font-weight: 600;
     line-height: 28px; /* 127.273% */
     letter-spacing: -0.66px;
+    text-decoration: underline;
+    transition: $defaultTransitionTime;
+    text-decoration-color: transparent;
+    &:hover {
+      text-decoration-color: $black;
+      img {
+        transform: scale(1.05);
+      }
+    }
   }
 
   &__gallery-link-img-wrapper {
@@ -1883,6 +1936,7 @@ h2 {
   }
 
   &__gallery-link-img {
+    transition: $defaultTransitionTime;
   }
 }
 
