@@ -713,16 +713,11 @@ h2 {
 }
 .accordeon__content {
   max-height: 0px;
-  overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: 0.23s;
+  transition: 0.23s max-height;
 }
 .accordeon__list {
-  max-width: 350px;
-  margin-left: 25.6%;
-  margin-top: 26px;
-  margin-right: 46.8%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -732,6 +727,28 @@ h2 {
 .accordeon.active .accordeon__content {
   display: block;
   visibility: visible;
+  opacity: 1;
+}
+.accordeon.active .accordeon__list {
+  margin-left: 25.6%;
+  margin-top: 26px;
+}
+.accordeon__list-item-img {
+  position: absolute;
+  width: 100%;
+  max-width: 395px;
+  height: 223px;
+  right: 0;
+  top: -97px;
+  z-index: 4;
+  transition: 0.23s;
+  opacity: 0;
+}
+.accordeon__list-item {
+  width: 100%;
+  position: relative;
+}
+.accordeon__list-item-link:hover + .accordeon__list-item-img {
   opacity: 1;
 }
 

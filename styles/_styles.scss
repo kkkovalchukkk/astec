@@ -641,17 +641,13 @@ h2 {
 
   &__content {
     max-height: 0px;
-    overflow: hidden;
+    // overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transition: $defaultTransitionTime;
+    transition: $defaultTransitionTime max-height;
   }
 
   &__list {
-    max-width: 350px;
-    margin-left: 25.6%;
-    margin-top: 26px;
-    margin-right: 46.8%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -663,6 +659,31 @@ h2 {
       display: block;
       visibility: visible;
       opacity: 1;
+    }
+    .accordeon__list {
+      margin-left: 25.6%;
+      margin-top: 26px;
+    }
+  }
+
+  &__list-item-img {
+    position: absolute;
+    width: 100%;
+    max-width: 395px;
+    height: 223px;
+    right: 0;
+    top: -97px;
+    z-index: $headerZIdx - 1;
+    transition: $defaultTransitionTime;
+    opacity: 0;
+  }
+  &__list-item {
+    width: 100%;
+    position: relative;
+    &-link {
+      &:hover + .accordeon__list-item-img {
+        opacity: 1;
+      }
     }
   }
 }
