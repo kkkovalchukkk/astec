@@ -22,8 +22,47 @@
                         fill="#FAFAFA" />
                 </svg>
             </button>
-            <div class="popup__player">
-                <video class="popup__video">
+            <div class="player popup__player">
+                <button class="player__play-btn popup__player-play-btn">
+                    <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g filter="url(#filter0_b_102_2096)">
+                            <rect width="110" height="110" rx="55" fill="#01684F" fill-opacity="0.8" />
+                            <path
+                                d="M50.5083 65.7637C49.4025 66.4223 48 65.626 48 64.3395V45.6605C48 44.374 49.4025 43.5777 50.5083 44.2363L66.1903 53.5758C67.2699 54.2187 67.2699 55.7813 66.1903 56.4242L50.5083 65.7637Z"
+                                fill="#FAFAFA" />
+                        </g>
+                        <defs>
+                            <filter id="filter0_b_102_2096" x="-15" y="-15" width="140" height="140"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="7.5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_102_2096" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_102_2096"
+                                    result="shape" />
+                            </filter>
+                        </defs>
+                    </svg>
+                </button>
+                <button class="player__pause-btn popup__player-pause-btn">
+                    <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g filter="url(#filter0_b_102_2098)">
+                            <rect width="110" height="110" rx="55" fill="#01684F" fill-opacity="0.8" />
+                            <rect x="46" y="44" width="3" height="22" rx="1.5" fill="#FAFAFA" />
+                            <rect x="62" y="44" width="3" height="22" rx="1.5" fill="#FAFAFA" />
+                        </g>
+                        <defs>
+                            <filter id="filter0_b_102_2098" x="-15" y="-15" width="140" height="140"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="7.5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_102_2098" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_102_2098"
+                                    result="shape" />
+                            </filter>
+                        </defs>
+                    </svg>
+                </button>
+                <video class="player__video popup__video">
                     <source src="./assets/video/test.mp4" type="video/mp4">
                 </video>
             </div>
@@ -717,6 +756,9 @@
                             </div>
                         </div>
                     </div>
+                    <a href="#" class="btn works-section__btn">
+                        Смотреть все проекты
+                    </a>
                 </div>
             </section>
             <section class="clients-section">
@@ -960,6 +1002,7 @@
     </div>
     <script src="./scripts/accordeon.js"></script>
     <script src="./scripts/popup.js"></script>
+    <script src="./scripts/player.js"></script>
     <script type="module" src="./scripts/animateCounter.js">
     </script>
     <script>
@@ -969,7 +1012,7 @@
             cardBlock.style.paddingBottom = `${Math.max(cardBlock.children.length, 1)}em`;
 
             Array.from(cardBlock.children).forEach(
-                (card, i) => (card.style.transform = `translateY(${i * 32}px)`)
+                (card, i) => (card.style.transform = `translateY(${i * 26}px)`)
             );
         });
 
