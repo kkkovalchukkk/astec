@@ -21,6 +21,10 @@ body {
 section {
   margin-bottom: 120px;
   padding: 0px 40px;
+  @media (max-width: 1359px) {
+    padding: 0px 30px;
+  }
+  
 }
 
 .no-scroll {
