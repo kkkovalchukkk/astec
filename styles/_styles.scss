@@ -152,7 +152,7 @@
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 100px;
+    gap: 22px;
   }
 
   &__col {
@@ -360,7 +360,7 @@ h1 {
   }
 
   &__group-item-label {
-    padding: 10px;
+    padding: 6px;
     color: $white;
     text-align: right;
     leading-trim: both;
@@ -451,7 +451,7 @@ h2 {
     &:first-child {
       position: sticky;
       left: 0;
-      top: 1em;
+      top: 3em;
     }
   }
 
@@ -492,7 +492,7 @@ h2 {
   &__ordered-card {
     max-width: 910px;
     position: sticky;
-    top: 1em;
+    top: 3em;
     // &:nth-child(1) {
     //   top: 48px;
     // }
