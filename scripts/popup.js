@@ -31,8 +31,8 @@ const closeActivePopup = () => {
   makeInactive(overlayEl, ACTIVE_OVERLAY_CLASSNAME);
   window.removeEventListener('keydown', closePopupByClickOnEsc);
   window.removeEventListener('click', closePopupByClickOnOverlay);
-  document.querySelector('.player').querySelector('video') &&
-    document.querySelector('.player').querySelector('video').pause();
+  document.querySelector('.player')?.querySelector('video') &&
+    document.querySelector('.player')?.querySelector('video').pause();
   document.querySelector('.player') &&
     document.querySelector('.player').classList.add('paused');
   onScroll();

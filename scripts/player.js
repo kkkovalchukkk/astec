@@ -9,19 +9,13 @@ const playVideo = () => {
 };
 const pauseVideo = () => playerVideoEl.pause();
 
-playerVideoEl.addEventListener('click', () => {
+playerVideoEl.addEventListener('play', () => {
   if (playerEl.classList.contains('paused')) {
-    playerVideoEl.play();
     playerEl.classList.remove('paused');
-    return;
   }
-
-  if (playerEl.classList.contains('playing')) {
-    playerVideoEl.pause();
-    playerEl.classList.add('paused');
-    return;
-  }
-
-  playerVideoEl.play();
   playerEl.classList.add('playing');
+});
+playerVideoEl.addEventListener('pause', () => {
+  playerVideoEl.pause();
+  playerEl.classList.add('paused');
 });
