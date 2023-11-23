@@ -452,7 +452,7 @@ h2 {
     &:first-child {
       position: sticky;
       left: 0;
-      top: 3em;
+      top: 110px;
     }
   }
 
@@ -493,7 +493,7 @@ h2 {
   &__ordered-card {
     max-width: 910px;
     position: sticky;
-    top: 3em;
+    top: 210px;
     // &:nth-child(1) {
     //   top: 48px;
     // }
@@ -3489,6 +3489,14 @@ h2 {
     &:hover {
       background-color: $darkGreen;
       color: $white;
+    }
+  }
+}
+
+@media (max-width: 1919px) {
+  .header {
+    &__tel-link {
+      margin-right: 121px;
     }
   }
 }
