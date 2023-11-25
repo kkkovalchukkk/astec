@@ -11,6 +11,9 @@ body {
   font-family: $mainFont;
   min-width: 320px;
   background-color: $white;
+  &.no-scroll{
+    overflow: hidden;
+  }
 }
 
 .page {
