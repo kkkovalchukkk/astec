@@ -211,9 +211,10 @@ display: none;
     transform: translateX(0);
   }
   .promo-section__animation{
-    right: -50px;
+    right: -50%;
     bottom: 50%;
-    translate: 0 50%;
+    translate: -25% 50%;
+    height: fit-content;
   }
   &__nav {
     @include fluid(gap, 30px, 48px);
@@ -315,6 +316,9 @@ display: none;
   }
 
   &__mobile-tel-link {
+    svg{
+      @include fluid(width, 30px, 36px);
+    }
   }
 
   &__burger-btn {
@@ -3785,12 +3789,16 @@ h2 {
     }
     &__row{
       display: flex;
+      gap: 20px;
       flex-direction: column;
       padding-bottom: 60px;
       border-bottom: #000 1px solid;
       &:not(&:first-child){
         display: none;
       }
+    }
+    &__col{
+      display: block;
     }
   }
   .player{
@@ -4016,6 +4024,16 @@ h2 {
 .burger{
   display: block;
 }
+.mobile-menu{
+  align-items: center;
+  &__nav{
+    gap: 50px;
+    text-align: center;
+    &-link{
+      font-size: 30px;
+    }
+  }
+}
 
 .process-section{
   padding: 0;
@@ -4183,7 +4201,17 @@ h2 {
 }
 
 @media (max-width: 920px) {
-
+  .header {
+    &__mobile-menu {
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  .popup__player{
+    height: 60% !important;
+  }
   .free-section{
     &__row{
       flex-direction: column;
@@ -4639,6 +4667,9 @@ h2 {
       height: 436px;
     }
   }
+  .image-section{
+    margin-bottom: 40px;
+  }
   .win-section__btn{
     max-width: unset;
   }
@@ -4650,7 +4681,31 @@ h2 {
   section{
     margin-bottom: 60px;
   }
-  .overlay{
+
+  .mobile-menu{
+    align-items: start;
+    &__nav{
+      gap: 30px;
+      text-align: unset;
+      &-link{
+        font-size: 21px;
+      }
+    }
+  }
+
+  .popup--vacancy{
+    border-radius: 0;
+    .popup__close-btn{
+      right: 30px;
+    }
+  }
+  .player{
+    &__video{
+      height: 280px;
+    }
+  }
+
+  .overlay--half{
     padding-left: 0;
     padding-right: 0;
   }
@@ -4692,17 +4747,23 @@ h2 {
     // }
   }
   .contacts-section{
+    margin-top: 60px;
+    &__heading{
+      margin-bottom: 40px;
+    }
     &__group{
       flex-direction: column;
       align-items: start;
       gap: 40px;
     }
     &__link{
-      margin-bottom: 60px;
+      margin-bottom: 20px;
+      margin-top: 20px;
     }
     &__item{
+      gap: 20px;
       &-tel-link{
-        font-size: 40px;
+        font-size: 30px;
       }
     }
   }
@@ -4866,9 +4927,40 @@ h2 {
     }
 
   }
+  .facts-section{
+    &__text-content p{
+      font-size: 17px;
+    }
+    &__group-item-counter{
+      font-size: 90px ;
+    }
+
+  }
 }
 
 @media (max-width: 400px) {
+  .h1, h1.heading{
+    font-size: 26px;
+  }
+  .promo-section{
+    &__heading{
+      margin-bottom: 40px;
+      max-width: unset;
+    }
+    &__text-content{
+      font-size: 19px;
+    }
+    &__gallery{
+      justify-content: center;
+    }
+    &__btn{
+      margin: 0 auto;
+      &Hidden{
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+    }
+  }
   .error-section__error{
     font-size: 100px;
     margin-bottom: 50px;
