@@ -1031,14 +1031,10 @@ h2 {
     }
   }
 
-  &__gallery-card-heading {
-    position: relative;
+  &__gallery-card-head, &__gallery-card-heading {
     width: fit-content;
     color: $black;
-    leading-trim: both;
-    text-edge: cap;
     font-family: $mainFont;
-    font-size: 22px;
     font-style: normal;
     font-weight: 600;
     line-height: 28px;
@@ -1046,6 +1042,15 @@ h2 {
     text-decoration: underline;
     text-decoration-color: transparent;
     transition: $defaultTransitionTime;
+  }
+
+  &__gallery-card-head {
+    font-size: 40px;
+  }
+
+  &__gallery-card-heading {
+    position: relative;
+    font-size: 22px;
     &:hover {
       text-decoration-color: $black;
     }
@@ -1095,8 +1100,8 @@ h2 {
     gap: 20px;
   }
   &__heading-field {
+    @include fluid(margin-bottom, 120px, 200px);
     width: 100%;
-    margin-bottom: 200px;
     display: flex;
     align-items: start;
     justify-content: space-between;
@@ -2057,6 +2062,7 @@ h2 {
   }
 }
 
+
 .form-section {
   padding: 0px 40px;
   margin-bottom: 40px;
@@ -2102,6 +2108,18 @@ h2 {
     max-width: 890px;
   }
 }
+
+.invalid{
+  .form__input{
+    border-color: red;
+    &:focus{
+      border-color: red;
+    }
+    &-error{
+      display: block;
+    } 
+  }
+}
 .form {
   width: 100%;
   &__row {
@@ -2110,6 +2128,20 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    &-wrap{
+      position: relative;
+      .label{
+        position: absolute;
+        color: $black;
+        font-weight: 500;
+        font-size: 18px;
+        left: 0;
+        transition: transform 200ms, color 200ms;
+        span{
+          color: red;
+        }
+      }
+    }
   }
 
   &__input {
@@ -2118,8 +2150,6 @@ h2 {
     border: none;
     background: none;
     color: $black;
-    leading-trim: both;
-    text-edge: cap;
     font-family: $mainFont;
     font-size: 18px;
     font-style: normal;
@@ -2127,13 +2157,30 @@ h2 {
     line-height: 24px;
     letter-spacing: -0.54px;
     border-bottom: 1px solid $black;
+    transition: all .38 ease-in-out;
     &::placeholder {
       color: $black;
+      transition: all .38 ease-in-out;
     }
     &:focus {
       outline: none;
       border-bottom: 1px solid #000;
     }
+    &:focus ~ .label,  /* фокус на input */
+    &:not(:placeholder-shown) ~ .label  /* в input есть значение */  {
+      transform: translateY(-30px) scale(0.95);
+    }
+    &-error{
+      margin-top: 15px;
+      display: none;
+      color: red;
+    }
+    // &.invalid{
+    //   border-color: red;
+    //   .form__input-error{
+    //     display: block;
+    //   }
+    // }
   }
   &__subtext {
     margin-top: 20px;
@@ -2172,6 +2219,10 @@ h2 {
     &:focus {
       outline: none;
       border-bottom: 1px solid #000;
+    }
+    &:focus ~ .label,  /* фокус на input */
+    &:not(:placeholder-shown) ~ .label  /* в input есть значение */  {
+      transform: translateY(-30px) scale(0.95);
     }
   }
 
@@ -2778,6 +2829,22 @@ h2 {
     padding: 0;
     border: none;
     display: none;
+  }
+  &__zoom-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(1, 104, 79, 0.80);
+    left: 50%;
+    translate: -50% 0;
+    bottom: 10%;
+    border: none;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
   }
 
   &__video {
@@ -3938,6 +4005,7 @@ h2 {
       max-width: 413px;
     }
   }
+
   .clients-section {
     &__text-content {
       max-width: 630px;
@@ -3945,6 +4013,39 @@ h2 {
         font-size: 24px;
         line-height: 28px;
         letter-spacing: -0.72px;
+      }
+    }
+    &__block{
+      &-list{
+        .block--empty{
+          display: none;
+        }
+        .block{
+          &:nth-child(5){
+            grid-column-start: 1;
+            grid-row-start: 2;
+          }
+          &:nth-child(6){
+            grid-column-start: 2;
+            grid-row-start: 2;
+          }
+          &:nth-child(7){
+            grid-column-start: 3;
+            grid-row-start: 2;
+          }
+          &:nth-child(8){
+            grid-column-start: 2;
+            grid-row-start: 3;
+          }
+          &:nth-child(11){
+            grid-column-start: 3;
+            grid-row-start: 3;
+          }
+          &:nth-child(12){
+            grid-column-start: 1;
+            grid-row-start: 4;
+          }
+        }
       }
     }
   }
@@ -4210,7 +4311,10 @@ h2 {
     }
   }
   .popup__player{
-    height: 60% !important;
+    height: 45% !important;
+    &-zoom-btn{
+      bottom: -20%;
+    }
   }
   .free-section{
     &__row{
@@ -4247,8 +4351,13 @@ h2 {
     }
 
   }
-  .form-section__wrapper{
-    flex-direction: column;
+  .form-section{
+    &__wrapper{
+      flex-direction: column;
+    }
+    &__text{
+      margin-bottom: 60px;
+    }
   }
   .promo-section {
     &__heading {
@@ -4275,6 +4384,38 @@ h2 {
 
   .works-section__gallery-card-image-wrapper--large {
     height: 480px;
+  }
+  .clients-section {
+    &__block{
+      &-list{
+        .block{
+          &:nth-child(5){
+            grid-column-start: unset;
+            grid-row-start: unset;
+          }
+          &:nth-child(6){
+            grid-column-start: unset;
+            grid-row-start: unset;
+          }
+          &:nth-child(7){
+            grid-column-start: unset;
+            grid-row-start: unset;
+          }
+          &:nth-child(8){
+            grid-column-start: unset;
+            grid-row-start: unset;
+          }
+          &:nth-child(11){
+            grid-column-start: unset;
+            grid-row-start: unset;
+          }
+          &:nth-child(12){
+            grid-column-start: unset;
+            grid-row-start: unset;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -4323,6 +4464,9 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .works-section__gallery-card-head{
+    font-size: 22px;
+  }
   .table{
     &__item{
       width: 100%;
@@ -4703,6 +4847,20 @@ h2 {
     &__video{
       height: 280px;
     }
+    &__play-btn, &__pause-btn{
+      width: unset;
+      height: unset;
+      left: 50%;
+      top: 50%;
+      translate: -50% -75%;
+      svg{
+        width: 64px;
+        height: 64px;
+      }
+    }
+    &__zoom-btn{
+      bottom: 0;
+    }
   }
 
   .overlay--half{
@@ -4924,6 +5082,7 @@ h2 {
     }
     &__row{
       grid-template-columns: 100%;
+      gap: 40px;
     }
 
   }

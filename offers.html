@@ -222,16 +222,30 @@
                             телефон - мы перезвоним сами!
                         </p>
                     </div>
-                    <form action="" class="form form-section__form" method="post">
+                    <form action="" class="form form-section__form" id="form-registration" method="post">
                         <div class="form__row">
-                            <input type="text" placeholder="Имя" name="name" class="form__input">
-                            <input type="tel" placeholder="Телефон" name="tel" class="form__input">
+                            <div class="form__row-wrap">
+                                <input id="form-name-input" type="text" placeholder="" name="name" class="form__input">
+                                <label for="form-name-input" class="label">Имя<span>*</span></label>
+                                <p class="form__input-error">Обязательно для заполнения</p>
+                            </div>
+                            <div class="form__row-wrap">
+                                <input id="form-tel-input" type="text" placeholder="" name="tel" class="form__input">
+                                <label for="form-name-input" class="label">Телефон<span>*</span></label>
+                                <p class="form__input-error">Обязательно для заполнения</p>
+                            </div>
                         </div>
-                        <input type="email" placeholder="Email" name="email" class="form__input">
+                        <div class="form__row-wrap">
+                            <input id="form-email-input" type="email" placeholder="" name="email" class="form__input">
+                            <label for="form-email-input" class="label">Email</label>
+                        </div>
                         <p class="form__subtext">
                             Если хотите получить расчет на почту
                         </p>
-                        <textarea name="description" placeholder="Описание задачи" class="form__textarea"></textarea>
+                        <div class="form__row-wrap">
+                            <textarea id="form-textarea" name="description" placeholder="" class="form__textarea"></textarea>
+                            <label for="form-textarea" class="label">Описание задачи</label>
+                        </div>
                         <div class="form__footer">
                             <div class="form__footer-col">
                                 <label class="form__file-label">
@@ -240,7 +254,7 @@
                                 </label>
                                 Не более 5 мб. В форматах jpg, pdf, png.
                             </div>
-                            <button class="btn form__btn" type="submit">Отправить</button>
+                            <button id="form-btn" class="btn form__btn" type="submit">Отправить</button>
                         </div>
                     </form>
                 </div>
@@ -387,7 +401,10 @@
             </div>
         </footer>
     </div>
-    <script src="./scripts/burger.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="./scripts/valid.js"></script>
+    <script src="./scripts/burger.js"></script>       
+
 
 </body>
 
