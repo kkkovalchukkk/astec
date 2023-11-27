@@ -8,8 +8,10 @@ document.querySelector('.project-section__swiper') &&
       prevEl: '.project-section__swiper-navigation-btn-left',
     },
   });
-document.querySelector('.detail-section__gallery') &&
-  new Swiper('.detail-section__gallery', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-  });
+  if(window.innerWidth > 525){
+    document.querySelector('.detail-section__gallery') &&
+      new Swiper('.detail-section__gallery', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+      });
+  }
