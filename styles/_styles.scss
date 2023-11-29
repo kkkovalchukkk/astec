@@ -488,7 +488,7 @@ h1 {
 .image-section {
   margin-bottom: 120px;
   padding-bottom: 20px;
-  background-image: url('../assets/img/image-section-background.png');
+  // background-image: url('../assets/img/image-section-background.png');
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center bottom;
@@ -499,6 +499,21 @@ h1 {
     object-fit: cover;
     object-position: center;
     border-radius: 20px;
+  }
+  &__wrapper{
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      translate: -50%;
+      z-index: -1;
+      width: 89%;
+      height: 60px;
+      border-radius: 20px;
+      background: var(--unnamed, #E3E3E3);
+    }
   }
 }
 
@@ -911,14 +926,14 @@ h2 {
 }
 
 .works-section {
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 50px;
   &__wrapper {
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
-    padding: 0;
+    padding: 0 0 40px 0;
     border-bottom: 1px solid $ligthGray;
   }
 
@@ -984,7 +999,7 @@ h2 {
     display: inline-block;
     overflow: hidden;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     &--large {
       width: 100%;
       height: 1034px;
@@ -2136,6 +2151,7 @@ h2 {
         color: $black;
         font-weight: 500;
         font-size: 18px;
+        top: -3px;
         left: 0;
         transition: transform 200ms, color 200ms;
         span{
@@ -2266,6 +2282,10 @@ h2 {
     letter-spacing: -0.54px;
     text-decoration-line: underline;
     cursor: pointer;
+    &--hidden{
+      text-decoration: none;
+      display: none;
+    }
   }
 
   &__file-input {
@@ -2830,22 +2850,22 @@ h2 {
     border: none;
     display: none;
   }
-  &__zoom-btn {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    background-color: rgba(1, 104, 79, 0.80);
-    left: 50%;
-    translate: -50% 0;
-    bottom: 10%;
-    border: none;
-    border-radius: 50%;
-    z-index: 2;
-    cursor: pointer;
-  }
+  // &__zoom-btn {
+  //   position: absolute;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   width: 64px;
+  //   height: 64px;
+  //   background-color: rgba(1, 104, 79, 0.80);
+  //   left: 50%;
+  //   translate: -50% 0;
+  //   bottom: 10%;
+  //   border: none;
+  //   border-radius: 50%;
+  //   z-index: 2;
+  //   cursor: pointer;
+  // }
 
   &__video {
     width: 100%;
@@ -3849,6 +3869,7 @@ h2 {
     flex-wrap: wrap;
     flex-direction: unset;
     gap: 30px;
+    align-items: end;
     &__cell--hidden{
       display: block;
     }
@@ -3943,6 +3964,11 @@ h2 {
   .image-section {
     &__img {
       height: 720px;
+    }
+    &__wrapper{
+      &::after{
+        width: 86%;
+      }
     }
   }
   h1,
@@ -4120,6 +4146,9 @@ h2 {
 }
 
 @media (max-width: 1196px) {
+  .offers-section__list-item--empty{
+    display: none;
+  }
   .cond-section{
     &__cards-row{
       grid-template-columns: repeat(2, 1fr);
@@ -4419,6 +4448,11 @@ h2 {
           }
         }
       }
+    }
+  }
+  .table{
+    &__link{
+      color: #01684F;
     }
   }
 }
@@ -4758,19 +4792,30 @@ h2 {
   }
 }
 @media (max-width: 525px) {
+  .promo-section__animation--contacts{
+    bottom: -520px;
+    right: -50px;
+  }
+  .form__file-label--hidden{
+    display: block;
+  }
   .team-section__subheading{
     margin-bottom: 40px;
   }
   .team-section__list{
     padding-top: 42px;
   }
+  .overlay{
+    padding: 30px 20px 30px 20px;
+  }
   .table{
+    margin-bottom: 60px;
     &__row{
-      gap: 0;
+      gap: 30px;
       padding-bottom: 35px;
     }
     &__cell--hidden{
-      margin-bottom: 20px;
+      margin-bottom: 5px;
     }
   }
   .prod-section{
@@ -4795,6 +4840,11 @@ h2 {
     &__text-content p{
       line-height: 28px; /* 140% */
       letter-spacing: -0.6px;
+    }
+    &__wrapper{
+      .player__video{
+        height: 280px;
+      }
     }
   }
   .breadcrumbs{
@@ -4892,7 +4942,7 @@ h2 {
       height: 2px;
     }
     .--active span:nth-child(3) {
-      margin-top: 35px;
+      margin-top: 36px;
     }
   }
   .header{
@@ -4936,7 +4986,7 @@ h2 {
         position: static;
         justify-content: center;
         &-btn{
-          width: 50%;
+          // width: 50%;
           svg g {
             rect{
               fill: #1B1719;
@@ -4984,18 +5034,24 @@ h2 {
      }
      h3{
       font-size: 22px;
+      line-height: 24px; /* 109.091% */
+      letter-spacing: -0.44px;
      }
     h4{
       font-size: 20px;
       margin-bottom: 26px;
+      line-height: 24px; /* 109.091% */
+      letter-spacing: -0.44px;
      }
     h5{
       font-size: 18px;
       margin-bottom: 32px;
+      line-height: 24px; /* 109.091% */
      }
     h6{
       font-size: 16px;
       margin-bottom: 32px;
+      letter-spacing: -0.44px;
 
      }
 
@@ -5023,8 +5079,11 @@ h2 {
   .image-section{
     margin-bottom: 72px;
   }
-  .win-section__btn{
-    max-width: unset;
+  .win-section{
+    margin-top: 80px;
+    &__btn{
+      max-width: unset;
+    }
   }
   .offers-section{  
     margin-top: 43px;
@@ -5054,6 +5113,7 @@ h2 {
     padding-left: 30px;
     padding-right: 30px;
     align-items: start;
+    margin-bottom: 30px;
     &__nav{
       gap: 43px;
       text-align: unset;
@@ -5076,29 +5136,66 @@ h2 {
   .popup--vacancy{
     border-radius: 0;
     .popup__close-btn{
-      right: 30px;
+      right: 14px;
+      top: 30px;
     }
   }
-  .player{
-    &__video{
-      height: 280px;
+  .popup{
+    &__header{
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+      &-item{
+        gap: 10px;
+      }
     }
+    &__body{
+      padding-bottom: 30px;
+      &-heading{
+        margin-bottom: 40px;
+        margin-top: 40px;
+      }
+    }
+    &__footer{
+      margin-top: 60px;
+      &-heading{
+        font-size: 24px;
+        margin-bottom: 60px;
+      }
+    }
+  }
+  .popup h2.popup__heading{
+    margin-top: 70px;
+    margin-bottom: 40px;
+    line-height: 30px; /* 100% */
+    letter-spacing: -1.2px;
+  }
+  .player{
     &__play-btn, &__pause-btn{
-      width: unset;
-      height: unset;
-      left: 50%;
-      top: 50%;
-      translate: -50% -50%;
+      // width: 100%;
+      // height: 100%;
+      // left: 50%;
+      // top: 100%;
+      // translate: -50% -40%;
       svg{
         width: 64px;
         height: 64px;
       }
     }
-    &__zoom-btn{
-      bottom: -30%;
-    }
+    // &__zoom-btn{
+    //   bottom: -30%;
+    // }
   }
 
+  .popup{
+    &__video{
+      height: 240px;
+    }
+    &__player{
+      margin-top: 25%;
+      height: 30% !important;
+    }
+  }
   .overlay--half{
     padding-left: 0;
     padding-right: 0;
@@ -5193,7 +5290,7 @@ h2 {
     font-size: 24px;
   }
   .detail-section{
-    margin-bottom: 60px;
+    margin-bottom: 0;
     &__bttn{
       display: block;
     }
@@ -5300,6 +5397,7 @@ h2 {
   }
   .promo-section{
     margin: 30px 0;
+    margin-bottom: 80px;
     &__btn{
       &Hidden{
         margin-bottom: 40px;
@@ -5318,9 +5416,29 @@ h2 {
       right: -80%;
       top: -230px;
     }
+    &__animation{
+      &--index{
+        bottom: -540px;
+        right: -70px;
+        .promo-section__animation-item--second{
+          right: -40px;
+        }
+        svg{
+          height: 232px;
+        }
+      }
+    }
   }
-  .image-section__img{
-    height: 280px;
+  .image-section{
+    &__img{
+      height: 280px;
+    }
+    &__wrapper{
+      &::after{
+        bottom: -10px;
+      }
+
+    }
   }
   .footer{
     padding-left: 0;
@@ -5370,6 +5488,13 @@ h2 {
     margin-bottom: 70px;
   }
   .form{
+    &__footer{
+      gap: 20px;
+      button{
+        margin-top: 40px;
+        margin-bottom: 25px;
+      }
+    }
     &-section{
       padding: 0;
       margin-bottom: 0;
@@ -5380,6 +5505,8 @@ h2 {
         margin-bottom: 30px;
       }
       &__wrapper{
+        padding-top: 60px;
+        padding-bottom: 40px;
         padding-left: 20px;
         padding-right: 20px;
         border-radius: unset;
@@ -5406,7 +5533,7 @@ h2 {
     &__group-item{
       gap: 70px;
       &:nth-child(1){
-        height: 360px;
+        height: 350px;
       }
       &:nth-child(2), &:nth-child(3){
         height: 300px;

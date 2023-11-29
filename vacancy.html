@@ -184,10 +184,18 @@
                     <h2 class="popup__footer-heading">
                         Откликнуться на вакансию
                     </h2>
-                    <form method="post" action="" class="form popup__form">
+                    <form method="post" action="" id="form-registration" class="form popup__form">
                         <div class="form__row">
-                            <input type="text" placeholder="Имя" name="name" class="form__input">
-                            <input type="tel" placeholder="Телефон" name="tel" class="form__input">
+                            <div class="form__row-wrap">
+                                <input id="form-name-input" type="text" placeholder="" name="name" class="form__input">
+                                <label for="form-name-input" class="label">Имя<span>*</span></label>
+                                <p class="form__input-error">Обязательно для заполнения</p>
+                            </div>
+                            <div class="form__row-wrap">
+                                <input id="form-tel-input" type="text" placeholder="" name="tel" class="form__input">
+                                <label for="form-name-input" class="label">Телефон<span>*</span></label>
+                                <p class="form__input-error">Обязательно для заполнения</p>
+                            </div>
                         </div>
                         <div class="form__footer">
                             <div class="form__footer-col">
@@ -196,6 +204,7 @@
                                     Прикрепить резюме
                                 </label>
                             </div>
+                            <p class="form__file-label--hidden">Не более 5 мб. В форматах jpg, pdf, png.</p>
                             <button class="btn form__btn" type="submit">Отправить</button>
                         </div>
                         <p class="form__subtext">
@@ -829,9 +838,11 @@
             </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./scripts/player.js"></script>
     <script src="./scripts/popup.js"></script>
     <script src="./scripts/burger.js"></script>
+    <script src="./scripts/valid.js"></script>
 
 </body>
 
